@@ -1,11 +1,12 @@
-  redis:
-    image: redis:latest
-    container_name: redis
-    expose:
-      - 6379
-  app:
-    build: ./
-    ports:
-      - 8081:3000
-    links:
-      - redis:redis
+redis:
+  image: redis:latest
+  container_name: redis
+  expose:
+    - 6379
+app:
+  build: ./
+  container_name: pizzaexpress_app
+  ports:
+    - 8081:3000
+  links:
+    - redis:redis

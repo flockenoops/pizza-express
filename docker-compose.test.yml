@@ -1,0 +1,11 @@
+test:
+    build: ./
+    dockerfile: Dockerfile.test
+    container_name: pizzaexpress_test
+    links:
+      - redis:redis
+redis:
+    image: redis:latest
+    container_name: redis
+    expose:
+      - 6379
